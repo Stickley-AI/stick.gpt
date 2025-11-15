@@ -1,0 +1,21 @@
+# Docker ignore file for stick.gpt
+node_modules
+npm-debug.log
+.env
+.env.local
+.env.*.local
+.git
+.gitignore
+.github
+*.md
+!README.md
+.vscode
+.idea
+*.log
+coverage
+.DS_Store
+test.js
+CONTRIBUTING.md
+LICENSE
+PROJECT_SUMMARY.md
+QUICKSTART.md
