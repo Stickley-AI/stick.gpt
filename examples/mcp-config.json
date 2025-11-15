@@ -1,0 +1,43 @@
+{
+  "name": "example-tools",
+  "version": "1.0.0",
+  "description": "Example MCP tool configuration",
+  "tools": [
+    {
+      "name": "calculate",
+      "description": "Perform mathematical calculations",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "type": "string",
+            "description": "The mathematical expression to evaluate"
+          }
+        },
+        "required": ["expression"]
+      }
+    },
+    {
+      "name": "convert_units",
+      "description": "Convert between different units of measurement",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "description": "The value to convert"
+          },
+          "from_unit": {
+            "type": "string",
+            "description": "The unit to convert from"
+          },
+          "to_unit": {
+            "type": "string",
+            "description": "The unit to convert to"
+          }
+        },
+        "required": ["value", "from_unit", "to_unit"]
+      }
+    }
+  ]
+}

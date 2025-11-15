@@ -1,0 +1,34 @@
+{
+  "name": "stick.gpt",
+  "version": "1.0.0",
+  "description": "Local GPT agent with tool calling and MCP integrations",
+  "main": "index.js",
+  "bin": {
+    "stick-gpt": "./cli.js"
+  },
+  "scripts": {
+    "start": "node cli.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "gpt",
+    "ai",
+    "agent",
+    "mcp",
+    "tool-calling",
+    "openai"
+  ],
+  "author": "astickleyid",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "openai": "^4.67.3",
+    "dotenv": "^16.4.5",
+    "commander": "^12.1.0",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "readline": "^1.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
