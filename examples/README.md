@@ -105,3 +105,24 @@ agent.chat('What is the weather in San Francisco?')
   .then(response => console.log(response))
   .catch(console.error);
 ```
+
+## Example 5: Docker Deployment
+
+See [kubernetes/README.md](kubernetes/README.md) for Kubernetes deployment examples.
+
+### Quick Docker Run
+
+```bash
+# Pull the image from GitHub Container Registry
+docker pull ghcr.io/stickley-ai/stick.gpt:latest
+
+# Run with environment variables
+docker run -it --rm \
+  -e OPENAI_API_KEY="your-api-key" \
+  ghcr.io/stickley-ai/stick.gpt:latest chat
+
+# Using docker-compose
+docker-compose run stick-gpt
+```
+
+For complete deployment instructions, see [DEPLOYMENT.md](../DEPLOYMENT.md) in the repository root.
