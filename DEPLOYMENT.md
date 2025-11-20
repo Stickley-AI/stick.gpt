@@ -2,6 +2,16 @@
 
 This guide covers various options for deploying stick.gpt using GitHub Actions and other methods.
 
+## Deployment Locations
+
+🔗 **Pre-built Docker Images**: [GitHub Container Registry](https://github.com/Stickley-AI/stick.gpt/pkgs/container/stick.gpt)
+- Image: `ghcr.io/stickley-ai/stick.gpt`
+- Available tags: `latest`, version tags (e.g., `v1.0.0`)
+
+🔗 **GitHub Actions Workflows**: [Actions Dashboard](https://github.com/Stickley-AI/stick.gpt/actions)
+- Build and deployment status
+- Manual workflow triggers
+
 ## Table of Contents
 
 1. [Docker Deployment](#docker-deployment)
