@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: stick-gpt-secrets
+  namespace: default
+type: Opaque
+stringData:
+  openai-api-key: "your-openai-api-key-here"  # Replace with your actual API key
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stick-gpt-config
+  namespace: default
+data:
+  MODEL: "gpt-4o-mini"
+  TEMPERATURE: "0.7"
+  MAX_TOKENS: "2000"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stick-gpt
+  namespace: default
+  labels:
+    app: stick-gpt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stick-gpt
+  template:
+    metadata:
+      labels:
+        app: stick-gpt
+    spec:
+      containers:
+      - name: stick-gpt
+        image: ghcr.io/stickley-ai/stick.gpt:latest
+        imagePullPolicy: Always
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: stick-gpt-secrets
+              key: openai-api-key
+        - name: MODEL
+          valueFrom:
+            configMapKeyRef:
+              name: stick-gpt-config
+              key: MODEL
+        - name: TEMPERATURE
+          valueFrom:
+            configMapKeyRef:
+              name: stick-gpt-config
+              key: TEMPERATURE
+        - name: MAX_TOKENS
+          valueFrom:
+            configMapKeyRef:
+              name: stick-gpt-config
+              key: MAX_TOKENS
+        stdin: true
+        tty: true
+        command: ["node", "/app/cli.js", "chat"]
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+---
+# Optional: Service for exposing the app
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: stick-gpt-service
+#   namespace: default
+# spec:
+#   selector:
+#     app: stick-gpt
+#   ports:
+#   - protocol: TCP
+#     port: 80
+#     targetPort: 3000
+#   type: LoadBalancer

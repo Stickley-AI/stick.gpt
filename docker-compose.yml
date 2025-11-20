@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  stick-gpt:
+    image: ghcr.io/stickley-ai/stick.gpt:latest
+    environment:
+      # Required: Set your OpenAI API key
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      
+      # Optional: Configure model and parameters
+      - MODEL=${MODEL:-gpt-4o-mini}
+      - TEMPERATURE=${TEMPERATURE:-0.7}
+      - MAX_TOKENS=${MAX_TOKENS:-2000}
+    
+    # Enable interactive mode
+    stdin_open: true
+    tty: true
+    
+    # Default command (can override when running)
+    command: chat
+    
+    # Optional: Mount local directory for file operations
+    # volumes:
+    #   - ./data:/app/data
+
+# Example usage:
+# 1. Set OPENAI_API_KEY in .env file or export it
+# 2. Run: docker-compose run stick-gpt
+# 3. Or with custom command: docker-compose run stick-gpt ask "What is Node.js?"

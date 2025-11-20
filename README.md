@@ -194,6 +194,25 @@ agent.registerTool({
 - Node.js >= 18.0.0
 - OpenAI API key
 
+## Deployment
+
+Multiple deployment options are available via GitHub Actions:
+
+- **Docker** - Deploy to GitHub Container Registry, cloud platforms, or run locally
+- **npm** - Publish as a global npm package
+- **Cloud Platforms** - Deploy to Azure, AWS, Google Cloud, Heroku, Kubernetes
+- **Manual** - Direct server deployment with PM2 or systemd
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions and options.
+
+### Quick Docker Deploy
+
+```bash
+# Pull and run the latest Docker image
+docker pull ghcr.io/stickley-ai/stick.gpt:latest
+docker run -it --rm -e OPENAI_API_KEY="your-key" ghcr.io/stickley-ai/stick.gpt:latest chat
+```
+
 ## License
 
 Apache-2.0 - See [LICENSE](LICENSE) file for details
