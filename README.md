@@ -1,5 +1,8 @@
 # stick.gpt
 
+[![Docker Image](https://img.shields.io/badge/docker-ghcr.io-blue?logo=docker)](https://github.com/Stickley-AI/stick.gpt/pkgs/container/stick.gpt)
+[![GitHub Actions](https://img.shields.io/badge/GitHub-Actions-blue?logo=github)](https://github.com/Stickley-AI/stick.gpt/actions)
+
 A powerful local GPT agent with tool calling capabilities and MCP (Model Context Protocol) integrations.
 
 ## Features
@@ -10,6 +13,18 @@ A powerful local GPT agent with tool calling capabilities and MCP (Model Context
 - 💬 **Interactive Chat**: Conversational interface with context retention
 - 🎨 **Beautiful CLI**: Color-coded output with loading indicators
 - ⚙️ **Configurable**: Environment variables and command-line options
+
+## Quick Start with Docker
+
+The easiest way to get started is using our pre-built Docker image:
+
+```bash
+# Pull and run the latest version
+docker pull ghcr.io/stickley-ai/stick.gpt:latest
+docker run -it --rm -e OPENAI_API_KEY="your-key" ghcr.io/stickley-ai/stick.gpt:latest chat
+```
+
+🔗 **Find all versions**: [GitHub Container Registry](https://github.com/Stickley-AI/stick.gpt/pkgs/container/stick.gpt)
 
 ## Installation
 
@@ -195,6 +210,14 @@ agent.registerTool({
 - OpenAI API key
 
 ## Deployment
+
+### Available Deployment Locations
+
+- 📦 **Docker Images**: [GitHub Container Registry](https://github.com/Stickley-AI/stick.gpt/pkgs/container/stick.gpt) - Pre-built Docker images
+- 🚀 **GitHub Actions**: [Workflows](https://github.com/Stickley-AI/stick.gpt/actions) - Automated builds and deployments
+- 📝 **npm Package**: Coming soon
+
+### Deployment Options
 
 Multiple deployment options are available via GitHub Actions:
 
